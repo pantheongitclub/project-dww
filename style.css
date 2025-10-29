@@ -1,0 +1,58 @@
+/* #### Global styles #### */
+body{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #03073B 0%, #000887 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+}
+/* #### Logo icon styles #### */
+.logo {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 100;
+}
+
+
+.logo img {
+    width: 4em;
+    height: auto;
+    display: block;
+}
+
+/* #### Welcome message styles #### */
+
+
+/* #### Social media icon styles #### */
+.social-media {
+    color: #FFFFFF;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 100;
+    display: flex;
+    gap: 1em;
+}
+
+
+.social-media-icons {
+    width: 2em;
+    height: auto;
+    display: block;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.social-media-icons:hover {
+    transform: scale(1.1);
+}
+
+/* #### Main header styles #### */
+.main-header {
+    font-family: 'Press Start 2P', cursive;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 3em;
+}
