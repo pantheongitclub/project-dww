@@ -25,4 +25,4 @@ alt="youtube demo video" width="400" height="300" border="10" /></a>
 #### User flow 
 [See the user flow in figma↗](https://www.figma.com/design/dM1YMjAZRYZsTOU9vZPyeU/Play-8-App?node-id=0-1&p=f&t=8awFqtHE7ahe7xf6-0)
 
-![figma user flow](img/userflow.png)
+![figma user flow](img/user-flow.png)
