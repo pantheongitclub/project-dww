@@ -1,6 +1,6 @@
 /***** Adafruit IO *****/
-const username  = "pantheon";
-const activeKey = "aio_JJeA690ij8o4K6BvfzTa3xIaTbzj"; 
+const username  = "username";
+const activeKey = "API KEY"; 
 const IO = new AdafruitIO(username, activeKey);
 const FEED_KEY = "joystick";
 
