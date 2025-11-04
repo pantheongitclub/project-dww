@@ -11,7 +11,7 @@ This allows the user to control the game from a real device, combining hardware 
 ![schematic view](img/schematic-view.png)
 
 #### Photographs
-Youtube video of the prototype lerping between colors
+Youtube video of the prototype
 
 <a href="https://youtu.be/sL5R1vyGo5c?si=HSi9JSkDRmb2nodQ" target="_blank"><img src="img/zombie_cover.png" 
 alt="youtube demo video" width="400" height="300" border="10" /></a>
