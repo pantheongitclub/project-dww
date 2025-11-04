@@ -8,7 +8,7 @@ This allows the user to control the game from a real device, combining hardware 
 
 #### Schematic view 
 
-![schematic view](images/schematic-view.png)
+![schematic view](img/schematic-view.png)
 
 #### Photographs
 Youtube video of the prototype lerping between colors
