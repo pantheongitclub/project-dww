@@ -1,6 +1,6 @@
 /***** Adafruit IO *****/
 const username  = "username";
-const activeKey = "API_KEY"; 
+const activeKey = "activeKey"; 
 const IO = new AdafruitIO(username, activeKey);
 const FEED_KEY = "joystick";
 
