@@ -9,45 +9,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="zombie" href="zombie.html">
+    <link rel="index" href="index.html">
+    <!-- p5.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+    <!-- adafruitIO library -->
+    <script src="https://cdn.jsdelivr.net/gh/methio/adafruitIO-class@latest/index.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <section>
         <!-- #### Logo image display #### -->
         <div class="logo">
-            <img src="/img/main-icon.png" alt="Icon image">
+            <a href="index.html">
+                <img src="/img/main-icon.png" alt="Icon image">
+            </a>
         </div>
         <!-- #### Welcome message display #### -->
          <div class="welcome-message">
             <img src="/img/bubble-1.png" alt="Speech bubble" class="bubble-bg">
-            <p>Welcome to the <br>Play 8 Arcade!<br>Select any game<br>to start playing</p>
+            <p>Use the <br>joystick to move.<br>Don't let the<br>zombies to catch<br>you!</p>
          </div>
          <!-- #### Social media icons #### -->
         <div class="social-media">
-            <i data-lucide="facebook" class="social-media-icons"></i>
-            <i data-lucide="instagram"class="social-media-icons"></i>
+            <i data-lucide="move-diagonal" class="social-media-icons"></i>
+            <i data-lucide="badge-question-mark"class="social-media-icons"></i>
         </div>
         <!-- #### Main header #### -->
         <div>
             <h1 class="main-header">PLAY 8</h1>
-        </div> 
-    </section>
-
-    <section class="games-container">
-        <div class="game-card">
-            <a href="zombie.html" class="game-link">
-                <div class="game-image-wrapper">
-                    <img src="/img/zombie_cover.png" alt="Zombie cover game" class="game-cover">
-                    <i data-lucide="gamepad-2" class="game-icon"></i>
-                    <div class="game-overlay">
-                        <p class="play-text">PLAY</p>
-                    </div>
-                    <p class="zombie-title">ZOMBIE</p>
-                </div>
-            </a>
         </div>
     </section>
+
+    <div id="canvasPos"></div>
 
     <script src="https://unpkg.com/lucide@latest" class="bigger"></script>
     <script>

@@ -3,8 +3,10 @@ body{
     min-height: 100vh;
     background: linear-gradient(180deg, #03073B 0%, #000887 100%);
     background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
     display: flex;
-    justify-content: center;
 }
 /* #### Logo icon styles #### */
 .logo {
@@ -23,6 +25,127 @@ body{
 
 /* #### Welcome message styles #### */
 
+.welcome-message {
+    position: fixed;
+    top: 1.6em;
+    left: 0em;
+    width: 400px;
+    height: 200px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+}
+
+
+.bubble-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+}
+
+
+.welcome-message p {
+    position: absolute;
+    top: 55%;           
+    left: 50%;      
+    transform: translate(-50%, -50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6em;
+    color: white;
+    line-height: 1.9;
+    margin: 0;
+    text-align: center;  
+    z-index: 2;
+    opacity: 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    width: 65%;
+    max-width: 280px;
+}
+
+
+@keyframes pixel-build {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    10% {
+        clip-path: polygon(0 0, 25% 0, 25% 25%, 0 25%);
+        opacity: 0.2;
+        transform: translate(2px, 0);
+    }
+    25% {
+        clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+        opacity: 0.4;
+        transform: translate(-2px, 0);
+    }
+    50% {
+        clip-path: polygon(0 0, 75% 0, 75% 75%, 0 75%);
+        opacity: 0.7;
+        transform: translate(2px, 0);
+    }
+    75% {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 90%);
+        opacity: 0.9;
+        transform: translate(-1px, 0);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(0, 0);
+    }
+}
+
+.welcome-message.show .bubble-bg {
+    animation: pixel-build 1.5s steps(20) forwards;
+}
+
+
+@keyframes text-fade-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+.welcome-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.welcome-message.show .bubble-bg {
+    animation: pixel-reveal 1.5s steps(20) forwards;
+}
+
+.welcome-message.show p {
+    animation: text-fade-in 0.8s ease-out 1s forwards;
+}
+
+
+.logo:hover + .welcome-message {
+    opacity: 1;
+    visibility: visible;
+}
+
+.logo:hover + .welcome-message .bubble-bg {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+}
+
+.logo:hover + .welcome-message p {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
 
 /* #### Social media icon styles #### */
 .social-media {
@@ -55,4 +178,179 @@ body{
     color: #FFFFFF;
     text-align: center;
     font-size: 3em;
+}
+
+
+/* #### Game cards styles #### */
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 250px);
+    padding: 2em;
+}
+
+.game-card {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.game-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.game-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 12px solid white;  /* BORDE BLANCO GRUESO */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    overflow: visible;  /* Cambiado para que el ícono se vea */
+    background: #000;
+    box-sizing: border-box;
+}
+
+.game-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.game-icon {
+    position: absolute;
+    bottom: 8px;           
+    left: 8px;             
+    width: 40px;
+    height: 40px;
+    color: white;
+    stroke-width: 2.5;
+    /*background: rgba(0, 0, 0, 0.7); */
+    padding: 8px;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 8, 135, 0.9);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.play-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+    color: white;
+    margin: 0;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+}
+
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.game-card:hover .game-cover {
+    transform: scale(1.05);
+    filter: brightness(0.5);
+}
+
+.game-card:hover .game-overlay {
+    opacity: 1;
+}
+
+.game-card:hover .game-image-wrapper {
+    box-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.6),
+        0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+
+.game-card:hover .game-icon {
+    opacity: 0;
+}
+
+
+.game-card:active {
+    transform: translateY(-5px) scale(1);
+}
+
+.zombie-title {
+    font-family: 'Press Start 2P', cursive;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1.5em;
+}
+
+/* #### Zombie game styles #### */
+.zombie-message {
+    position: fixed;
+    top: 0.8em;
+    left: 5.2em;
+    width: 450px;        
+    min-height: 150px;   
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+}
+
+.zombie-message p {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5em;      
+    color: white;
+    line-height: 1.7;      
+    margin: 0;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    width: 75%;           
+    max-width: 350px;
+}
+
+/* #### Canvas game styles #### */
+#canvasPos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: -1em;  
+    padding: 2em 0;
+}
+
+canvas {
+    border: 8px solid white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: block !important;
+}
+
+
+body {
+    overflow: hidden;  
 }
